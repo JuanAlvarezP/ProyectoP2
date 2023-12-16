@@ -8,7 +8,7 @@
 
     <ShellContent
         Title="Menú Principal"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate local:AdminPage}"
         Route="MainPage" />
 
     

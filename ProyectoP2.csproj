@@ -60,6 +60,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="AdminPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Animales.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
