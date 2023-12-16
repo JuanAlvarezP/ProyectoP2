@@ -33,11 +33,13 @@
             <Button Grid.Row="2"
                     BackgroundColor="#9f5d34"
                     Text="Animales"
+                    Clicked="botonAnimales"
                     TextColor="White"/>
 
             <Button Grid.Row="2"
                     BackgroundColor="#9f5d34"
                     Text="Cliente"
+                    Clicked="botonClientes"
                     TextColor="White"/>
 
 
