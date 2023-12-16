@@ -9,6 +9,11 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 	}
 
+	private async void botonCitas(object sender, EventArgs e)
+	{
+		await Navigation.PushAsync(new Citas());
+	}
+
 	
 }
 

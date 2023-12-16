@@ -25,7 +25,8 @@
 
             <Button Grid.Row="2"
                     BackgroundColor="#9f5d34"
-                    Text= "Citas" 
+                    Text= "Citas"
+                    Clicked="botonCitas"
                     TextColor="White"/>
                     
 
