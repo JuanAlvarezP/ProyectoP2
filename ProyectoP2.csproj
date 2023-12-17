@@ -56,34 +56,34 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="AdminPage.xaml">
+	  <MauiXaml Update="Views\AdminPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Animales.xaml">
+	  <MauiXaml Update="Views\Animales\Animales.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Citas.xaml">
+	  <MauiXaml Update="Views\Citas\Citas.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Clientes.xaml">
+	  <MauiXaml Update="Views\Clientes\Clientes.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="RegistrarAnimales.xaml">
+	  <MauiXaml Update="Views\Animales\RegistrarAnimales.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="RegistrarCitas.xaml">
+	  <MauiXaml Update="Views\Citas\RegistrarCitas.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="RegistrarClientes.xaml">
+	  <MauiXaml Update="Views\Clientes\RegistrarClientes.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="VerAnimales.xaml">
+	  <MauiXaml Update="Views\Animales\VerAnimales.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="VerCitas.xaml">
+	  <MauiXaml Update="Views\Citas\VerCitas.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="VerClientes.xaml">
+	  <MauiXaml Update="Views\Clientes\VerClientes.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

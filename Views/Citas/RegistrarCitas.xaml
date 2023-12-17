@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoP2.RegistrarCitas"
+             Title="RegistrarCitas">
+    <StackLayout Padding="20">
+        <Label Text="Registrar Nueva Cita" FontSize="Title" HorizontalOptions="CenterAndExpand" Margin="0,20,0,20" />
+
+        <Entry Placeholder="Nombre del propietario" x:Name="nombrePropietarioEntry" />
+        <Entry Placeholder="Motivo de la cita" x:Name="motivoCitaEntry" />
+        <DatePicker x:Name="fechaDatePicker" />
+        <Entry Placeholder="Nombre del animal" x:Name="nombreAnimalEntry" />
+        <Entry Placeholder="Número de teléfono" x:Name="numTelEntry" />
+
+
+
+        <Button Text="Registrar Cita" Clicked="OnRegistrarCitaClicked" HorizontalOptions="Center" Margin="0,20,0,0" />
+    </StackLayout>
+</ContentPage>
