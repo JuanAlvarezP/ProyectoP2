@@ -5,8 +5,22 @@
              Title="Animales">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        FontSize="20"
+        Text="Seleccione una opción"
+        VerticalOptions="Center" 
+        HorizontalOptions="Center" />
+
+        <Button 
+        BackgroundColor="#9f5d34"
+        Text= "Registrar Animal"
+        Clicked="botonRegistrarAnimales"
+        TextColor="White"/>
+
+
+        <Button 
+        BackgroundColor="#9f5d34"
+        Text="Ver todos los animales"
+        Clicked="botonVerAnimales"
+        TextColor="White"/>
     </VerticalStackLayout>
 </ContentPage>

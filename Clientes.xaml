@@ -5,8 +5,22 @@
              Title="Clientes">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        FontSize="20"
+        Text="Seleccione una opción"
+        VerticalOptions="Center" 
+        HorizontalOptions="Center" />       
+
+        <Button 
+        BackgroundColor="#9f5d34"
+        Text= "Registrar Cliente"
+        Clicked="botonRegistrarClientes"
+        TextColor="White"/>
+
+
+        <Button 
+        BackgroundColor="#9f5d34"
+        Text="Ver todos los clientes"
+        Clicked="botonVerClientes"
+        TextColor="White"/>
     </VerticalStackLayout>
 </ContentPage>
