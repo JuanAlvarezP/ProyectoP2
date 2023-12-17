@@ -5,8 +5,22 @@
              Title="Citas">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            FontSize="20"
+            Text="Seleccione una opción"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <Button 
+        BackgroundColor="#9f5d34"
+        Text= "Registrar Cita"
+        Clicked="botonRegistrarCitas"
+        TextColor="White"/>
+
+
+        <Button 
+        BackgroundColor="#9f5d34"
+        Text="Ver todas las citas"
+        Clicked="botonVerCitas"
+        TextColor="White"/>
     </VerticalStackLayout>
 </ContentPage>
