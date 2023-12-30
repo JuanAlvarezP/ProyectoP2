@@ -2,12 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoP2.AdminPage"
-             Title="AdminPage">
+             Title="AdminPage"
+             BackgroundColor="Wheat">
     <VerticalStackLayout>
         <Button Grid.Row="2"
         BackgroundColor="#9f5d34"
         Text= "Entrar"
         Clicked="botonEntrar"
-        TextColor="White"/>
+        TextColor="White"
+        VerticalOptions="Center"
+        HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>

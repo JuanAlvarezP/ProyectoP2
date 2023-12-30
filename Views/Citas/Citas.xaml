@@ -2,13 +2,19 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoP2.Citas"
-             Title="Citas">
-    <VerticalStackLayout>
+             Title="Citas"
+             BackgroundColor="Wheat">
+    <VerticalStackLayout
+        Spacing="20"
+        Padding="80"
+        VerticalOptions="Center">
+        
         <Label 
             FontSize="20"
             Text="Seleccione una opción"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            TextColor="Black"/>
 
         <Button 
         BackgroundColor="#9f5d34"

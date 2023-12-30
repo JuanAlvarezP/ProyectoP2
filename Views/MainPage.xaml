@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProyectoP2.MainPage">
+             x:Class="ProyectoP2.MainPage"
+              BackgroundColor="Wheat">
 
     <ScrollView>
         <VerticalStackLayout
@@ -13,7 +14,8 @@
                 Text="Bienvenido a ClawsANDPaws"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="24"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                TextColor="Black"/>
 
             <Image
                 Source="perros_gatos.png"
