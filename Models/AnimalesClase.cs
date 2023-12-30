@@ -14,7 +14,7 @@ namespace ProyectoP2.Models
 
         [Required(ErrorMessage = "El nombre de la mascota es obligatorio.")]
         [StringLength(50, ErrorMessage = "El nombre de la mascota no puede exceder los 50 caracteres.")]
-        public string Nombre { get; set; }
+        public string NombreAni { get; set; }
 
         [Required(ErrorMessage = "La especie de la mascota es obligatoria.")]
         [StringLength(50, ErrorMessage = "La especie no puede exceder los 50 caracteres.")]

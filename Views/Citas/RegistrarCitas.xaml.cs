@@ -1,32 +1,41 @@
 using ProyectoP2.Models;
+    
+
 
 namespace ProyectoP2;
 
 public partial class RegistrarCitas : ContentPage
 {
-    private List<CitasClase> listaCitas;
+    public CitasClase NuevaCita { get; set; }           
 
     public RegistrarCitas()
     {
         InitializeComponent();
-        listaCitas = new List<CitasClase>(); // Inicializa la lista de citas
+        NuevaCita = new CitasClase();
+        BindingContext = NuevaCita;
+        NuevaCita.FechaHora = DateTime.Now;
     }
 
-    private void OnRegistrarCitaClicked(object sender, EventArgs e)
+    private void RegistrarClicked(object sender, EventArgs e)
     {
-        string nombrePropietario = nombrePropietarioEntry.Text;
-        string motivoCita = motivoCitaEntry.Text;
-        DateTime fechaHora = fechaDatePicker.Date; // Obtiene la fecha seleccionada
+        // Guardar la nueva cita en las preferencias de la aplicación
+        List<CitasClase> citasGuardadas = new List<CitasClase>();
 
-        // Crear una nueva cita
-        CitasClase nuevaCita = new CitasClase
+        // Obtener las citas existentes, si las hay
+        if (Preferences.ContainsKey("Citas"))
         {
-            NombrePropietario = nombrePropietario,
-            Motivo = motivoCita,
-            FechaHora = fechaHora
-            // Asignar otros valores si es necesario
-        };
+            string citasString = Preferences.Get("Citas", string.Empty);
+            citasGuardadas = System.Text.Json.JsonSerializer.Deserialize<List<CitasClase>>(citasString);
+        }
 
-        listaCitas.Add(nuevaCita); // Agrega la nueva cita a la lista
+        // Agregar la nueva cita a la lista
+        citasGuardadas.Add(NuevaCita);
+
+        // Serializar la lista de citas y guardarlas en las preferencias
+        string serializedCitas = System.Text.Json.JsonSerializer.Serialize(citasGuardadas);
+        Preferences.Set("Citas", serializedCitas);
+
+        // Después de guardar, puedes navegar a la página de ver citas:
+        Navigation.PushAsync(new VerCitas());
     }
 }

@@ -4,17 +4,15 @@
              x:Class="ProyectoP2.RegistrarCitas"
              Title="RegistrarCitas"
              BackgroundColor="Wheat">
-    <StackLayout Padding="20">
-        <Label Text="Registrar Nueva Cita" FontSize="Title" HorizontalOptions="CenterAndExpand" Margin="0,20,0,20" />
+    <VerticalStackLayout Padding="20">
+        <DatePicker x:Name="datePicker" Date="{Binding NuevaCita.FechaHora, Mode=TwoWay}" />
+        <TimePicker x:Name="timePicker" Time="{Binding NuevaCita.FechaHora, Mode=TwoWay}" />
+        <Entry Placeholder="Motivo" Text="{Binding Motivo}" />
+        <Entry Placeholder="Nombre del Animal" Text="{Binding NombreAnimal}" />
+        <Entry Placeholder="Nombre del Propietario" Text="{Binding NombrePropietario}" />
+        <Entry Placeholder="Teléfono del Propietario" Text="{Binding NumeroTelefonoPropietario}" />
+        <Editor Placeholder="Observaciones" Text="{Binding Observaciones}" />
 
-        <Entry Placeholder="Nombre del propietario" x:Name="nombrePropietarioEntry" />
-        <Entry Placeholder="Motivo de la cita" x:Name="motivoCitaEntry" />
-        <DatePicker x:Name="fechaDatePicker" />
-        <Entry Placeholder="Nombre del animal" x:Name="nombreAnimalEntry" />
-        <Entry Placeholder="Número de teléfono" x:Name="numTelEntry" />
-
-
-
-        <Button Text="Registrar Cita" Clicked="OnRegistrarCitaClicked" HorizontalOptions="Center" Margin="0,20,0,0" />
-    </StackLayout>
+        <Button Text="Registrar" Clicked="RegistrarClicked" />
+    </VerticalStackLayout>
 </ContentPage>

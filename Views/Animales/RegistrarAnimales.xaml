@@ -4,10 +4,6 @@
              x:Class="ProyectoP2.RegistrarAnimales"
              Title="RegistrarAnimales"
              BackgroundColor="Wheat">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    
+    
 </ContentPage>
