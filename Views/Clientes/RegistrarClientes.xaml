@@ -4,10 +4,13 @@
              x:Class="ProyectoP2.RegistrarClientes"
              Title="RegistrarClientes"
              BackgroundColor="Wheat">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <StackLayout Padding="20">
+        <Entry Placeholder="Nombre" x:Name="entryNombre" />
+        <Entry Placeholder="Apellido" x:Name="entryApellido" />
+        <Entry Placeholder="Correo Electrónico" x:Name="entryCorreo" />
+        <Entry Placeholder="Número de Teléfono" x:Name="entryTelefono" />
+        <DatePicker x:Name="datePickerFechaRegistro" />
+
+        <Button Text="Guardar" Clicked="GuardarClienteClicked" />
+    </StackLayout>
 </ContentPage>
