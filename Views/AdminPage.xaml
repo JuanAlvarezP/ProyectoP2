@@ -4,13 +4,32 @@
              x:Class="ProyectoP2.AdminPage"
              Title="AdminPage"
              BackgroundColor="Wheat">
-    <VerticalStackLayout>
-        <Button Grid.Row="2"
-        BackgroundColor="#9f5d34"
-        Text= "Entrar"
-        Clicked="botonEntrar"
-        TextColor="White"
-        VerticalOptions="Center"
-        HorizontalOptions="Center"/>
-    </VerticalStackLayout>
+    <AbsoluteLayout>
+        <!-- Imagen encima del botón -->
+        <Image Source="perros_gatos.png" 
+               Aspect="AspectFit"
+               AbsoluteLayout.LayoutBounds="0.5, 0.1, 0.5, 0.5"
+               AbsoluteLayout.LayoutFlags="All" />
+
+        <!-- Botón en el centro -->
+        <Button BackgroundColor="#9f5d34"
+                Text="Ingresar"
+                Clicked="botonEntrar"
+                TextColor="White"
+                AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.4, 0.1"
+                AbsoluteLayout.LayoutFlags="All"/>
+
+        <!-- Imágenes de patitas en las esquinas -->
+        
+
+        <Image Source="huellas.png" 
+               AbsoluteLayout.LayoutBounds="1, 0, 0.2, 0.2"
+               AbsoluteLayout.LayoutFlags="All" />
+
+        <Image Source="huellas.png" 
+               AbsoluteLayout.LayoutBounds="0, 1, 0.2, 0.2"
+               AbsoluteLayout.LayoutFlags="All" />
+
+        
+    </AbsoluteLayout>
 </ContentPage>

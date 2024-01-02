@@ -5,11 +5,20 @@
              Title="RegistrarClientes"
              BackgroundColor="Wheat">
     <StackLayout Padding="20">
-        <Entry Placeholder="Nombre" x:Name="entryNombre" />
-        <Entry Placeholder="Apellido" x:Name="entryApellido" />
-        <Entry Placeholder="Correo Electrónico" x:Name="entryCorreo" />
-        <Entry Placeholder="Número de Teléfono" x:Name="entryTelefono" />
-        <DatePicker x:Name="datePickerFechaRegistro" />
+        <Label Text="Nombre" />
+        <Entry x:Name="entryNombre" Placeholder="Nombre del cliente" />
+
+        <Label Text="Apellido" />
+        <Entry x:Name="entryApellido" Placeholder="Apellido del cliente" />
+
+        <Label Text="Correo Electrónico" />
+        <Entry x:Name="entryCorreo" Placeholder="Correo electrónico" />
+
+        <Label Text="Número de Teléfono" />
+        <Entry x:Name="entryTelefono" Placeholder="Número de teléfono" />
+
+        <Label Text="Dirección" />
+        <Entry x:Name="entryDireccion" Placeholder="Dirección del cliente" />
 
         <Button Text="Guardar" Clicked="GuardarClienteClicked" />
     </StackLayout>

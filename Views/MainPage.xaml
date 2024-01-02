@@ -4,49 +4,34 @@
              x:Class="ProyectoP2.MainPage"
               BackgroundColor="Wheat">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-            <Label
-                Text="Bienvenido a ClawsANDPaws"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="24"
-                HorizontalOptions="Center"
-                TextColor="Black"/>
+        <Label Text="Bienvenido a ClawsANDPaws" FontSize="24" HorizontalOptions="Center" TextColor="Black" Grid.Row="0" Margin="0,20,0,10"/>
 
-            <Image
-                Source="perros_gatos.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+        <StackLayout Grid.Row="1" VerticalOptions="Start" Spacing="10">
+            <Image Source="perros_gatos.png" HeightRequest="200" HorizontalOptions="Center"/>
+            <Grid Padding="20,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="huellas.png" HeightRequest="50" WidthRequest="50" HorizontalOptions="Start" Grid.Column="0" Margin="10,10,0,0"/>
+                <Image Source="huellas.png" HeightRequest="50" WidthRequest="50" HorizontalOptions="End" Grid.Column="1" Margin="0,10,10,0"/>
+            </Grid>
+        </StackLayout>
 
+        <StackLayout Grid.Row="2" VerticalOptions="Start" Spacing="10" Margin="0,20,0,0">
+            <Button BackgroundColor="#9f5d34" Text="Citas" Clicked="botonCitas" TextColor="White"/>
+            <Button BackgroundColor="#9f5d34" Text="Animales" Clicked="botonAnimales" TextColor="White"/>
+            <Button BackgroundColor="#9f5d34" Text="Cliente" Clicked="botonClientes" TextColor="White"/>
+        </StackLayout>
+    </Grid>
 
-
-            <Button Grid.Row="2"
-                    BackgroundColor="#9f5d34"
-                    Text= "Citas"
-                    Clicked="botonCitas"
-                    TextColor="White"/>
-                    
-
-            <Button Grid.Row="2"
-                    BackgroundColor="#9f5d34"
-                    Text="Animales"
-                    Clicked="botonAnimales"
-                    TextColor="White"/>
-
-            <Button Grid.Row="2"
-                    BackgroundColor="#9f5d34"
-                    Text="Cliente"
-                    Clicked="botonClientes"
-                    TextColor="White"/>
-
-
-
-        </VerticalStackLayout>
-    </ScrollView>
 
 </ContentPage>

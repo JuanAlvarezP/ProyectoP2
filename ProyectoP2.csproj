@@ -48,6 +48,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\huellas.png" />
 	  <None Remove="Resources\Images\perros_gatos.png" />
 	</ItemGroup>
 
@@ -63,6 +64,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Citas\Citas.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Citas\DetalleCita.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Clientes\Clientes.xaml">

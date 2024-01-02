@@ -5,65 +5,47 @@ namespace ProyectoP2;
 
 public partial class RegistrarClientes : ContentPage
 {
-    private List<ClientesClase> clientes;
-
     public RegistrarClientes()
     {
         InitializeComponent();
-
-        // Obtener clientes guardados (si los hay)
-        clientes = ObtenerClientesGuardados();
     }
 
-    // Método para obtener los clientes guardados
-    private List<ClientesClase> ObtenerClientesGuardados()
-    {
-        List<ClientesClase> clientesGuardados = new List<ClientesClase>();
-
-        // Lógica para recuperar los clientes de tu fuente de datos (por ejemplo, base de datos o almacenamiento local)
-        // Ejemplo de código para obtener clientes desde una fuente de datos:
-
-        // clientesGuardados = ObtenerClientesDesdeFuenteDeDatos();
-
-        return clientesGuardados;
-    }
-
-    // Método para guardar un nuevo cliente
     private void GuardarClienteClicked(object sender, EventArgs e)
     {
-        // Aquí debes obtener los datos del cliente del formulario y crear una nueva instancia de ClientesClase
         ClientesClase nuevoCliente = new ClientesClase
         {
-            // Asignar los valores desde tu formulario
-            // Por ejemplo:
+            // Asigna los valores ingresados por el usuario a las propiedades del cliente
+            // Aquí asume que tienes los Entry para ingresar los datos del cliente en tu XAML
             NombreCli = entryNombre.Text,
             ApellidoCli = entryApellido.Text,
             CorreoElectronicoCli = entryCorreo.Text,
-            NumeroTelefonoCli= entryTelefono.Text
-            // ... otros campos
+            NumeroTelefonoCli = entryTelefono.Text,
+            FechaRegistroCli = DateTime.Now, // Puedes usar DateTime.Today si no necesitas la hora exacta
+            Direccion = entryDireccion.Text
         };
 
-        // Agregar el nuevo cliente a la lista local
-        clientes.Add(nuevoCliente);
+        // Aquí guardas el nuevo cliente en tus datos de clientes, por ejemplo, en una lista
+        List<ClientesClase> listaClientes = new List<ClientesClase>();
 
-        // Guardar los clientes actualizados en tu fuente de datos (base de datos, almacenamiento local, etc.)
-        // Por ejemplo:
-        // GuardarClientesEnFuenteDeDatos(clientes);
+        if (Preferences.ContainsKey("Clientes"))
+        {
+            string clientesString = Preferences.Get("Clientes", string.Empty);
+            listaClientes = JsonSerializer.Deserialize<List<ClientesClase>>(clientesString);
+        }
 
-        // Una vez guardado el cliente, podrías mostrar un mensaje de éxito o navegar a otra página
-        DisplayAlert("Éxito", "El cliente se ha registrado correctamente", "Aceptar");
+        listaClientes.Add(nuevoCliente);
 
-        // Limpiar los campos del formulario después de guardar el cliente
-        LimpiarCampos();
-    }
+        var serializedClientes = JsonSerializer.Serialize(listaClientes);
+        Preferences.Set("Clientes", serializedClientes);
 
-    // Método para limpiar los campos del formulario después de guardar el cliente
-    private void LimpiarCampos()
-    {
+        // Muestra un mensaje indicando que el cliente se ha guardado correctamente
+        DisplayAlert("Éxito", "Cliente guardado correctamente", "OK");
+
+        // Limpia los campos después de guardar
         entryNombre.Text = string.Empty;
         entryApellido.Text = string.Empty;
         entryCorreo.Text = string.Empty;
         entryTelefono.Text = string.Empty;
-        // Limpiar otros campos si es necesario
+        entryDireccion.Text = string.Empty;
     }
 }
