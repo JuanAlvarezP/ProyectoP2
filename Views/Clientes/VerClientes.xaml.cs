@@ -1,44 +1,65 @@
 using ProyectoP2.Models;
-using System.Text.Json;
-using System.Windows.Input;
+using System;
+using System.Collections.Generic;
 
-namespace ProyectoP2;
 
-public partial class VerClientes : ContentPage
+namespace ProyectoP2
 {
-    public ICommand DeleteCommand { get; }
-
-    public VerClientes()
+    public partial class VerClientes : ContentPage
     {
-        InitializeComponent();
-
-        if (Preferences.ContainsKey("Clientes"))
+        public VerClientes()
         {
-            string clientesString = Preferences.Get("Clientes", string.Empty);
-            List<ClientesClase> clientesGuardados = System.Text.Json.JsonSerializer.Deserialize<List<ClientesClase>>(clientesString);
+            InitializeComponent();
 
-            listViewClientes.ItemsSource = clientesGuardados;
+            if (Preferences.ContainsKey("Clientes"))
+            {
+                string clientesString = Preferences.Get("Clientes", string.Empty);
+                List<ClientesClase> clientesGuardados = System.Text.Json.JsonSerializer.Deserialize<List<ClientesClase>>(clientesString);
+                listViewClientes.ItemsSource = clientesGuardados;
+                BindingContext = this;
+            }
         }
 
-        DeleteCommand = new Command<ClientesClase>(async (cliente) => await EliminarCliente(cliente));
-        BindingContext = this;
-    }
-
-    private async Task EliminarCliente(ClientesClase cliente)
-    {
-        bool answer = await DisplayAlert("Confirmar", "¿Está seguro de que desea eliminar este cliente?", "Sí", "No");
-
-        if (answer)
+        private async void EliminarClienteClicked(object sender, EventArgs e)
         {
-            if (listViewClientes.ItemsSource is IList<ClientesClase> clientes)
+            if (sender is Button button && button.CommandParameter is ClientesClase cliente)
             {
-                clientes.Remove(cliente);
+                bool answer = await DisplayAlert("Confirmar", "¿Está seguro de que desea eliminar este cliente?", "Sí", "No");
 
-                var serializedClientes = System.Text.Json.JsonSerializer.Serialize(clientes);
-                Preferences.Set("Clientes", serializedClientes);
+                if (answer)
+                {
+                    if (listViewClientes.ItemsSource is IList<ClientesClase> clientes)
+                    {
+                        clientes.Remove(cliente);
+                        var serializedClientes = System.Text.Json.JsonSerializer.Serialize(clientes);
+                        Preferences.Set("Clientes", serializedClientes);
+                        listViewClientes.ItemsSource = null;
+                        listViewClientes.ItemsSource = clientes;
+                    }
+                }
+            }
+        }
 
-                listViewClientes.ItemsSource = null;
-                listViewClientes.ItemsSource = clientes;
+        private async void DetalleClienteClicked(object sender, EventArgs e)
+        {
+            var clienteSeleccionado = (ClientesClase)((Button)sender).CommandParameter;
+
+            // Redirigir a la página DetalleCliente pasando el cliente seleccionado como parámetro
+            await Navigation.PushAsync(new DetalleCliente(clienteSeleccionado));
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            // Actualizar la lista de clientes cada vez que la página se muestre
+            if (Preferences.ContainsKey("Clientes"))
+            {
+                string clientesString = Preferences.Get("Clientes", string.Empty);
+                List<ClientesClase> clientesGuardados = System.Text.Json.JsonSerializer.Deserialize<List<ClientesClase>>(clientesString);
+                listViewClientes.ItemsSource = null; // Limpiar la lista existente
+                listViewClientes.ItemsSource = clientesGuardados;
+                BindingContext = this;
             }
         }
     }

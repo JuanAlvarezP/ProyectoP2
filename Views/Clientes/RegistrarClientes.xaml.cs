@@ -12,19 +12,37 @@ public partial class RegistrarClientes : ContentPage
 
     private void GuardarClienteClicked(object sender, EventArgs e)
     {
+
+        string nombre = entryNombre.Text;
+        string apellido = entryApellido.Text;
+        string correo = entryCorreo.Text;
+        string telefono = entryTelefono.Text;
+        string direccion = entryDireccion.Text;
+
+        // Validar los datos ingresados
+        if (string.IsNullOrWhiteSpace(nombre) ||
+            string.IsNullOrWhiteSpace(apellido) ||
+            string.IsNullOrWhiteSpace(correo) ||
+            string.IsNullOrWhiteSpace(telefono) ||
+            string.IsNullOrWhiteSpace(direccion))
+        {
+            DisplayAlert("Error", "Por favor, completa todos los campos.", "OK");
+            return;
+        }
         ClientesClase nuevoCliente = new ClientesClase
         {
-            // Asigna los valores ingresados por el usuario a las propiedades del cliente
-            // Aquí asume que tienes los Entry para ingresar los datos del cliente en tu XAML
+            
             NombreCli = entryNombre.Text,
             ApellidoCli = entryApellido.Text,
             CorreoElectronicoCli = entryCorreo.Text,
             NumeroTelefonoCli = entryTelefono.Text,
-            FechaRegistroCli = DateTime.Now, // Puedes usar DateTime.Today si no necesitas la hora exacta
+            FechaRegistroCli = DateTime.Now, 
             Direccion = entryDireccion.Text
+
+
         };
 
-        // Aquí guardas el nuevo cliente en tus datos de clientes, por ejemplo, en una lista
+        
         List<ClientesClase> listaClientes = new List<ClientesClase>();
 
         if (Preferences.ContainsKey("Clientes"))
@@ -38,10 +56,8 @@ public partial class RegistrarClientes : ContentPage
         var serializedClientes = JsonSerializer.Serialize(listaClientes);
         Preferences.Set("Clientes", serializedClientes);
 
-        // Muestra un mensaje indicando que el cliente se ha guardado correctamente
         DisplayAlert("Éxito", "Cliente guardado correctamente", "OK");
 
-        // Limpia los campos después de guardar
         entryNombre.Text = string.Empty;
         entryApellido.Text = string.Empty;
         entryCorreo.Text = string.Empty;

@@ -2,11 +2,29 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoP2.Views.Citas.DetalleCita"
-             Title="DetalleCita">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="DetalleCita"
+             BackgroundColor="Wheat">
+    <StackLayout Padding="20">
+
+        <Label Text="Fecha y Hora:" FontAttributes="Bold"  TextColor="Black"/>
+        <Entry Text="{Binding FechaHoraString, Mode=TwoWay}" x:Name="FechaHoraEntry" TextColor="Brown"/>
+
+        <Label Text="Motivo:" FontAttributes="Bold" TextColor="Black"/>
+        <Entry x:Name="MotivoEntry" Text="{Binding Motivo, Mode=TwoWay}" TextColor="Brown"/>
+
+        <Label Text="Nombre del Animal:" FontAttributes="Bold" TextColor="Black"/>
+        <Entry x:Name ="NombreAnimalEntry" Text="{Binding NombreAnimal}" TextColor="Brown"/>
+
+        <Label Text="Nombre del Propietario:" FontAttributes="Bold" TextColor="Black"/>
+        <Entry x:Name ="NombrePropietarioEntry" Text="{Binding NombrePropietario}" TextColor="Brown"/>
+
+        <Label Text="Teléfono del Propietario:" FontAttributes="Bold" TextColor="Black"/>
+        <Entry x:Name ="TelefonoPropietarioEntry" Text="{Binding NumeroTelefonoPropietario}" TextColor="Brown"/>
+
+        <Label Text="Observaciones:" FontAttributes="Bold" TextColor="Black"/>
+        <Entry  x:Name ="ObservacionesEntry" Text="{Binding Observaciones}" TextColor="Brown"/>
+
+
+        <Button Text="Actualizar" Clicked="ActualizarCitaClicked" CommandParameter="{Binding .}"  TextColor="Brown"/>
+    </StackLayout>
 </ContentPage>

@@ -6,13 +6,12 @@
              BackgroundColor="Wheat">
 
     <StackLayout Padding="20">
-        <Label Text="Registrar Nuevo Animal" FontSize="Title" HorizontalOptions="CenterAndExpand" Margin="0,10,0,20" />
 
-        <Entry Placeholder="Nombre" x:Name="entryNombre" />
-        <Entry Placeholder="Especie" x:Name="entryEspecie" />
-        <Entry Placeholder="Raza" x:Name="entryRaza" />
-        <DatePicker Date="{Binding FechaNacimiento}" Format="dd/MM/yyyy" x:Name="datePickerFechaNacimiento" />
-        <Picker Title="Género" x:Name="pickerGenero">
+        <Entry Placeholder="Nombre" x:Name="entryNombre"  TextColor="Brown"/>
+        <Entry Placeholder="Especie" x:Name="entryEspecie"  TextColor="Brown"/>
+        <Entry Placeholder="Raza" x:Name="entryRaza"  TextColor="Brown"/>
+        <DatePicker Date="{Binding FechaNacimiento}" Format="dd/MM/yyyy" x:Name="datePickerFechaNacimiento"  TextColor="Brown"/>
+        <Picker Title="Género" x:Name="pickerGenero" TextColor="Brown">
             <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>Macho</x:String>
@@ -20,9 +19,9 @@
                 </x:Array>
             </Picker.ItemsSource>
         </Picker>
-        <Entry Placeholder="Observaciones" x:Name="entryObservaciones" />
+        <Entry Placeholder="Observaciones" x:Name="entryObservaciones"  TextColor="Brown"/>
 
-        <Button Text="Registrar" Clicked="RegistrarClicked" HorizontalOptions="FillAndExpand" Margin="0,20,0,0" />
+        <Button Text="Registrar" Clicked="RegistrarClicked" TextColor="Brown" />
     </StackLayout>
 
 

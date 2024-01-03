@@ -13,7 +13,7 @@
         FontSize="20"
         Text="Seleccione una opción"
         VerticalOptions="Center" 
-        HorizontalOptions="Center" />
+        HorizontalOptions="Center" TextColor="Black"/>
 
         <Button 
         BackgroundColor="#9f5d34"

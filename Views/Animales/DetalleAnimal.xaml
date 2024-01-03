@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoP2.DetalleAnimal"
+             Title="DetalleAnimal"
+             BackgroundColor="Wheat">
+    <StackLayout Padding="10" VerticalOptions="FillAndExpand">
+        <Label Text="{Binding NombreAni}" FontAttributes="Bold" FontSize="16" TextColor="Black"/>
+        <Entry x:Name="NombreAniEntry" Text="{Binding NombreAni}"  TextColor="Brown"/>
+
+        <Label Text="{Binding Especie}" FontAttributes="Bold" FontSize="14" TextColor="Black"/>
+        <Entry x:Name="EspecieEntry" Text="{Binding Especie}"  TextColor="Brown"/>
+
+        <Label Text="{Binding Raza}" FontAttributes="Bold" FontSize="14" TextColor="Black"/>
+        <Entry x:Name="RazaEntry" Text="{Binding Raza}"  TextColor="Brown"/>
+
+        <Label Text="{Binding Genero}" FontAttributes="Bold" FontSize="14" TextColor="Black"/>
+        <Picker x:Name="GeneroPicker" Title="Seleccione un género" TextColor="Brown">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Hembra</x:String>
+                    <x:String>Macho</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        <Label Text="{Binding FechaNacimiento, StringFormat='{0:dd/MM/yyyy}'}" FontAttributes="Bold" FontSize="14" TextColor="Black"/>
+        <DatePicker x:Name="FechaNacimientoPicker" Date="{Binding FechaNacimiento}" TextColor="Brown" />
+
+        <Label Text="{Binding Observaciones}" FontAttributes="Bold" FontSize="14" TextColor="Black"/>
+        <Entry x:Name="ObservacionesEntry" Text="{Binding Observaciones}"  TextColor="Brown"/>
+
+        <!-- Botón Actualizar -->
+        <Button Text="Actualizar" Clicked="ActualizarAnimalClicked" CommandParameter="{Binding .}"  TextColor="Brown"/>
+    </StackLayout>
+</ContentPage>

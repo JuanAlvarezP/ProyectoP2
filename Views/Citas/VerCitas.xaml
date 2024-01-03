@@ -4,55 +4,31 @@
              x:Class="ProyectoP2.VerCitas"
              Title="VerCitas"
              BackgroundColor="Wheat">
-    <Grid Padding="20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+    <ListView x:Name="listViewCitas">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="10" VerticalOptions="FillAndExpand">
+                        <Label Text="Fecha y Hora:" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="{Binding FechaHora, StringFormat='{0:dd/MM/yyyy HH:mm}', Mode=TwoWay}" TextColor="Brown"/>
 
-        <ListView x:Name="listViewCitas" Grid.Row="0" Grid.RowSpan="7">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid Padding="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
+                        <Label Text="Motivo:" FontAttributes="Bold"  TextColor="Black"/>
+                        <Label Text="{Binding Motivo}" TextColor="Brown"/>
 
-                            <Label Text="Fecha y Hora:" FontAttributes="Bold" Grid.Row="0"/>
-                            <Label Text="{Binding FechaHora, StringFormat='{0:dd/MM/yyyy HH:mm}', Mode=TwoWay}" Grid.Row="1"/>
+                        <Label Text="Nombre del Animal:" FontAttributes="Bold"  TextColor="Black"/>
+                        <Label Text="{Binding NombreAnimal}" TextColor="Brown"/>
 
-                            <Label Text="Motivo:" FontAttributes="Bold" Grid.Row="2"/>
-                            <Label Text="{Binding Motivo}" Grid.Row="3"/>
+                        <Label Text="Nombre del Propietario:" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="{Binding NombrePropietario}" TextColor="Brown"/>
 
-                            <Label Text="Nombre del Animal:" FontAttributes="Bold" Grid.Row="4"/>
-                            <Label Text="{Binding NombreAnimal}" Grid.Row="5"/>
+                        <!-- Botón Detalles para redirigir a la página DetalleCita -->
+                        <Button Text="Detalles" Clicked="DetalleCitaClicked" CommandParameter="{Binding .}"  TextColor="Brown"/>
 
-                            <Label Text="Nombre del Propietario:" FontAttributes="Bold" Grid.Row="6"/>
-                            <Label Text="{Binding NombrePropietario}" Grid.Row="7"/>
-
-                            <Label Text="Teléfono del Propietario:" FontAttributes="Bold" Grid.Row="8"/>
-                            <Label Text="{Binding NumeroTelefonoPropietario}" Grid.Row="9"/>
-
-                            <Label Text="Observaciones:" FontAttributes="Bold" Grid.Row="10"/>
-                            <Label Text="{Binding Observaciones}" Grid.Row="11"/>
-
-                            <Button Text="Eliminar" Clicked="EliminarCitaClicked" CommandParameter="{Binding .}" Grid.Row="12"/>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </Grid>
+                        <!-- Botón para eliminar la cita -->
+                        <Button Text="Eliminar" Clicked="EliminarCitaClicked" CommandParameter="{Binding .}"  TextColor="Brown"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

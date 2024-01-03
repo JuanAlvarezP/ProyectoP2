@@ -5,21 +5,21 @@
              Title="RegistrarClientes"
              BackgroundColor="Wheat">
     <StackLayout Padding="20">
-        <Label Text="Nombre" />
-        <Entry x:Name="entryNombre" Placeholder="Nombre del cliente" />
+        <Label Text="Nombre" FontAttributes="Bold" TextColor="Black"/>
+        <Entry x:Name="entryNombre" Placeholder="Nombre del cliente" TextColor="Brown"/>
 
-        <Label Text="Apellido" />
-        <Entry x:Name="entryApellido" Placeholder="Apellido del cliente" />
+        <Label Text="Apellido" FontAttributes="Bold" TextColor="Black"/>
+        <Entry x:Name="entryApellido" Placeholder="Apellido del cliente" TextColor="Brown"/>
 
-        <Label Text="Correo Electrónico" />
-        <Entry x:Name="entryCorreo" Placeholder="Correo electrónico" />
+        <Label Text="Correo Electrónico" FontAttributes="Bold" TextColor="Black"/>
+        <Entry x:Name="entryCorreo" Placeholder="Correo electrónico" TextColor="Brown"/>
 
-        <Label Text="Número de Teléfono" />
-        <Entry x:Name="entryTelefono" Placeholder="Número de teléfono" />
+        <Label Text="Número de Teléfono" FontAttributes="Bold" TextColor="Black"/>
+        <Entry x:Name="entryTelefono" Placeholder="Número de teléfono" TextColor="Brown"/>
 
-        <Label Text="Dirección" />
-        <Entry x:Name="entryDireccion" Placeholder="Dirección del cliente" />
+        <Label Text="Dirección" FontAttributes="Bold" TextColor="Black"/>
+        <Entry x:Name="entryDireccion" Placeholder="Dirección del cliente" TextColor="Brown"/>
 
-        <Button Text="Guardar" Clicked="GuardarClienteClicked" />
+        <Button Text="Guardar" Clicked="GuardarClienteClicked" TextColor="Brown"/>
     </StackLayout>
 </ContentPage>

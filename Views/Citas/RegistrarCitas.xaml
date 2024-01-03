@@ -5,14 +5,14 @@
              Title="RegistrarCitas"
              BackgroundColor="Wheat">
     <VerticalStackLayout Padding="20">
-        <DatePicker x:Name="datePicker" Date="{Binding NuevaCita.FechaHora, Mode=TwoWay}" />
-        <TimePicker x:Name="timePicker" Time="{Binding NuevaCita.FechaHora, Mode=TwoWay}" />
-        <Entry Placeholder="Motivo" Text="{Binding Motivo}" />
-        <Entry Placeholder="Nombre del Animal" Text="{Binding NombreAnimal}" />
-        <Entry Placeholder="Nombre del Propietario" Text="{Binding NombrePropietario}" />
-        <Entry Placeholder="Teléfono del Propietario" Text="{Binding NumeroTelefonoPropietario}" />
-        <Editor Placeholder="Observaciones" Text="{Binding Observaciones}" />
+        <DatePicker x:Name="datePicker" Date="{Binding NuevaCita.FechaHora, Mode=TwoWay}" TextColor="Brown"/>
+        <TimePicker x:Name="timePicker" Time="{Binding NuevaCita.FechaHora, Mode=TwoWay}" TextColor="Brown"/>
+        <Entry Placeholder="Motivo" Text="{Binding Motivo}" TextColor="Brown"/>
+        <Entry Placeholder="Nombre del Animal" Text="{Binding NombreAnimal}" TextColor="Brown"/>
+        <Entry Placeholder="Nombre del Propietario" Text="{Binding NombrePropietario}" TextColor="Brown"/>
+        <Entry Placeholder="Teléfono del Propietario" Text="{Binding NumeroTelefonoPropietario}" TextColor="Brown"/>
+        <Editor Placeholder="Observaciones" Text="{Binding Observaciones}" TextColor="Brown"/>
 
-        <Button Text="Registrar" Clicked="RegistrarClicked" />
+        <Button Text="Registrar" Clicked="RegistrarClicked" TextColor="Brown" />
     </VerticalStackLayout>
 </ContentPage>

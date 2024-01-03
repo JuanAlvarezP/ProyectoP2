@@ -9,7 +9,7 @@ public partial class RegistrarAnimales : ContentPage
         InitializeComponent();
     }
 
-    private void RegistrarClicked(object sender, EventArgs e)
+    private async void RegistrarClicked(object sender, EventArgs e)
     {
         // Obtener los valores de las entradas
         string nombre = entryNombre.Text;
@@ -19,8 +19,16 @@ public partial class RegistrarAnimales : ContentPage
         string genero = pickerGenero.SelectedItem?.ToString();
         string observaciones = entryObservaciones.Text;
 
-        // Validar los datos ingresados (aquí debes implementar tu lógica de validación)
-
+        // Validar los datos ingresados
+        if (string.IsNullOrWhiteSpace(nombre) ||
+            string.IsNullOrWhiteSpace(especie) ||
+            string.IsNullOrWhiteSpace(raza) ||
+            string.IsNullOrWhiteSpace(genero) ||
+            fechaNacimiento == DateTime.MinValue)
+        {
+            await DisplayAlert("Error", "Por favor, completa todos los campos obligatorios.", "OK");
+            return;
+        }
         // Crear una nueva instancia de la clase AnimalesClase con los datos ingresados
         AnimalesClase nuevoAnimal = new AnimalesClase()
         {

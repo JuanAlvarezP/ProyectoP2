@@ -4,33 +4,34 @@
              x:Class="ProyectoP2.VerAnimales"
              Title="VerAnimales"
              BackgroundColor="Wheat">
-    <StackLayout Padding="20">
-        <ListView x:Name="listViewAnimales">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid Padding="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
+    <ListView x:Name="listViewAnimales">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="10" VerticalOptions="FillAndExpand">
+                        <Label Text="{Binding NombreAni}" FontAttributes="Bold" FontSize="16" TextColor="Brown"/>
+                        <Label Text="{Binding Especie}" FontSize="14" TextColor="Brown"/>
+                        <Label Text="{Binding Raza}" FontSize="14" TextColor="Brown"/>
+                        <Label Text="{Binding Genero}" FontSize="14" TextColor="Brown"/>
+                        <Label Text="{Binding FechaNacimiento, StringFormat='{0:dd/MM/yyyy}'}" FontSize="14" TextColor="Brown"/>
+                        <Label Text="{Binding Observaciones}" FontSize="14" TextColor="Brown"/>
 
-                            <Label Text="{Binding NombreAni}" FontAttributes="Bold" FontSize="16" Grid.Row="0" />
-                            <Label Text="{Binding Especie}" FontSize="14" Grid.Row="1" />
-                            <Label Text="{Binding Raza}" FontSize="14" Grid.Row="2" />
-                            <Label Text="{Binding Genero}" FontSize="14" Grid.Row="3" />
-                            <Label Text="{Binding FechaNacimiento, StringFormat='{0:dd/MM/yyyy}'}" FontSize="14" Grid.Row="4" />
-                            <Label Text="{Binding Observaciones}" FontSize="14" Grid.Row="5" />
+                        <!-- Botón Detalles para redirigir a la página DetalleAnimal -->
+                        <Button Text="Detalles" Clicked="DetalleAnimalClicked" CommandParameter="{Binding .}" TextColor="Brown"/>
 
-                            <Button Text="Eliminar" Command="{Binding Source={x:Reference listViewAnimales}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding .}" HorizontalOptions="End" VerticalOptions="End" />
+                        <!-- Botón para eliminar el animal -->
+                        <Button Text="Eliminar" Clicked="EliminarAnimalClicked" CommandParameter="{Binding .}" TextColor="Brown"/>
+                        <Grid Padding="20,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="huellas.png" HeightRequest="50" WidthRequest="50" HorizontalOptions="Start" Grid.Column="0" Margin="10,10,0,0"/>
+                            <Image Source="huellas.png" HeightRequest="50" WidthRequest="50" HorizontalOptions="End" Grid.Column="1" Margin="0,10,10,0"/>
                         </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

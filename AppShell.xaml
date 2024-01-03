@@ -6,11 +6,24 @@
     xmlns:local="clr-namespace:ProyectoP2"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Menú Principal"
-        ContentTemplate="{DataTemplate local:AdminPage}"
-        Route="MainPage" />
+    <TabBar>
+        <Tab Title="Admin" >
+            <ShellContent Route="AdminPage" ContentTemplate="{DataTemplate local:AdminPage}" />
+        </Tab>
+        <Tab Title="Menu Principal">
+            <ShellContent Route="MenuPrincipalPage" ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+        <Tab Title="Citas">
+            <ShellContent Route="MenuPrincipalPage" ContentTemplate="{DataTemplate local:Citas}" />
+        </Tab>
+        <Tab Title="Animales">
+            <ShellContent Route="MenuPrincipalPage" ContentTemplate="{DataTemplate local:Animales}" />
+        </Tab>
+        <Tab Title="Clientes">
+            <ShellContent Route="MenuPrincipalPage" ContentTemplate="{DataTemplate local:Clientes}" />
+        </Tab>
 
-    
+    </TabBar>
+
 
 </Shell>
